@@ -1,11 +1,5 @@
 # Memories
 
-## Contributors
-
-Mandy 
-
-## Work in Progress
-
 This application allows users to create and manage posts to record memories.
 
 ## User Stories
@@ -23,3 +17,13 @@ This applications utilizes the **MERN Stack**.
 - Mongoose
 - Express
 - Axios
+
+## Future Implementation
+
+- [] Users will be able to unlike a memory
+- [] Users will be able to leave a comment on a memory
+  -  [] Users will be able to like, edit, delete, and reply to comment  
+- [] Users will be able to create a user profile and create account-based memories
+- [] Users will be able to save posts 
+- [] Users will be able to report a post
+- [] Users will be able to search by hashtag or content
