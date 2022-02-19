@@ -18,3 +18,4 @@ This applications utilizes the **MERN Stack**.
 - Node JS
 - Mongoose
 - Express
+- Axios
