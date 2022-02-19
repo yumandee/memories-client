@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 // import { FETCH_ALL, CREATE } from '../cons'
 export default (posts = [], action) => {
    switch (action.type) {
@@ -7,6 +8,8 @@ export default (posts = [], action) => {
          return action.payload;
       case 'CREATE':
          return [...posts, action.payload];
+      case 'DELETE':
+         return posts.filter((post) => post._id  !== action.payload)
       default: 
          return posts;
    }
