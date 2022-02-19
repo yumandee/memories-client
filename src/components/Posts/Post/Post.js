@@ -8,7 +8,7 @@ import notFoundImg from '../../../images/notfound.png';
 import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 
-import { deletePost } from '../../../actions/posts';
+import { deletePost, likePost } from '../../../actions/posts';
 
 const Post = ({ post , setCurrentId }) => {
 
@@ -34,14 +34,14 @@ const Post = ({ post , setCurrentId }) => {
          <Typography className={classes.title} variant="h5" gutterBottom>{post.title}</Typography>
 
          <CardContent>
-            <Typography className={classes.title} variant="h5" gutterBottom>{post.message}</Typography>
+            <Typography className={classes.title} variant="body2" color="textSecondary" component="p">{post.message}</Typography>
          </CardContent>
          <CardActions className={classes.cardActions}>
-            <Button size="small" color="primary" onClick={() => {}}> 
+            <Button size="small" color="primary" onClick={() => dispatch(likePost(post._id)) }> 
                <ThumbUpAltIcon fontSize="small" />
-               Like {post.likeCount}
+               Like&nbsp;{post.likeCount}
             </Button>
-            <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id))}> 
+            <Button size="small" color="primary" onClick={() => dispatch(deletePost(post._id)) }> 
                <DeleteIcon fontSize="small" />
                Delete
             </Button>
