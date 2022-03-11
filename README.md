@@ -29,6 +29,6 @@ This applications utilizes the **MERN Stack**.
 - [ ] Users will be able to report a post
 - [ ] Users will be able to search by hashtag or content
 
-### Credits
+## Credits
 
-Tutorial by JavaScript Mastery on Youtube
+Tutorial by [JavaScript Mastery](https://www.youtube.com/channel/UCmXmlB4-HJytD7wek0Uo97A) on Youtube
