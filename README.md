@@ -1,7 +1,7 @@
 # Memories
 
 This application allows users to create and manage posts to record memories.
-
+![](https://prnt.sc/ebXKu3PlWxuF)
 ## User Stories
 
 - [x] Users can create, edit, and delete a memory
