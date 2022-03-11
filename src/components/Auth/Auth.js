@@ -1,36 +1,54 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
+
+import { signin, signup } from '../../actions/auth';
+import { AUTH } from '../../constants/actionTypes';
+
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import { useDispatch } from 'react-redux';
-import { GoogleLogin } from 'react-google-login';
-import { useNavigate } from 'react-router-dom';
-
 import Icon from './icon';
 
 import useStyles from  './styles';
 import Input from './Input';
 
+const initialState = {
+   firstName: '',
+   lastName: '',
+   email: '',
+   password: '',
+   confirmPassword: ''
+}
+
 const Auth = () => {
 
    const classes = useStyles();
-   const dispatch = useDispatch();
+   const dispatch = useDispatch(); 
    const navigate = useNavigate();
+
    const [ showPassword, setShowPassword ] = useState(false);
    const [ isSignup, setIsSignup ] = useState(false);
+   const [ formData, setFormData ] = useState(initialState);
 
-   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+   const handleShowPassword = () => setShowPassword(!showPassword);
 
-   const handleSubmit = () => {
-      
+   const handleSubmit = (e) => {
+      e.preventDefault();
+
+      if(isSignup) {
+         dispatch(signup(formData, navigate))
+      } else {
+         dispatch(signin(formData, navigate));
+      }
    };
 
-   const handleChange = () => {
-
-   };
+   const handleChange = (e) => setFormData( { ...formData, [e.target.name]: e.target.value });
 
    const switchMode = () => {
+      setFormData(initialState);
       setIsSignup((prevIsSignUp) => !prevIsSignUp);
-      handleShowPassword(false); 
+      setShowPassword(false); 
    }
 
    const googleSuccess = async (res) => {
@@ -38,7 +56,7 @@ const Auth = () => {
       const token = res?.tokenId;
 
       try {
-         dispatch({ type: 'AUTH', data: {result, token} })
+         dispatch({ type: AUTH, data: { result, token } })
 
          navigate('/');
       } catch(error) {
@@ -64,7 +82,7 @@ const Auth = () => {
                      isSignup && (
                         <>
                            <Input name="firstName" label="First Name" handleChange={handleChange} autoFocus half />
-                           <Input name="firstName" label="First Name" handleChange={handleChange} half />
+                           <Input name="lastName" label="Last Name" handleChange={handleChange} half />
                         </>
 
                      )
