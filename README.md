@@ -28,3 +28,7 @@ This applications utilizes the **MERN Stack**.
 - [ ] Users will be able to save posts 
 - [ ] Users will be able to report a post
 - [ ] Users will be able to search by hashtag or content
+
+### Credits
+
+Tutorial by JavaScript Mastery on Youtube
